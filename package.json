@@ -1,5 +1,5 @@
 {
-  "name": "transform-supports-color",
+  "name": "copy-supports-color",
   "description": "Detect whether a terminal supports color",
   "version": "9.3.0",
   "sideEffects": false,
@@ -21,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/idanran/transform-supports-color.git"
+    "url": "git+https://github.com/idanran/copy-supports-color.git"
   },
   "author": "idanran <idanran@outlook.com>",
   "license": "MIT",
@@ -53,12 +53,10 @@
     "compile:browser": "esbuild src/index.ts --outfile=lib/browser.mjs --bundle --sourcemap --platform=neutral --target=esnext",
     "build": "yarn compile:node-cjs && yarn compile:node-esm && yarn compile:browser &&  tsc --project tsconfig.json"
   },
-  "dependencies": {
-    "supports-color": "9.3.0"
-  },
   "devDependencies": {
     "esbuild": "^0.16.2",
     "typescript": "4.9.4",
-    "@types/node": "^18.11.11"
+    "@types/node": "^18.11.11",
+    "supports-color": "9.3.0"
   }
 }
