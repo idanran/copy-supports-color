@@ -1,0 +1,64 @@
+{
+  "name": "transform-supports-color",
+  "description": "Detect whether a terminal supports color",
+  "version": "9.3.0",
+  "sideEffects": false,
+  "typings": "lib/index.d.ts",
+  "main": "lib/node.cjs",
+  "module": "lib/node.mjs",
+  "exports": {
+    ".": {
+      "node": {
+        "require": "./lib/node.cjs",
+        "import": "./lib/node.mjs"
+      },
+      "browser": "./lib/browser.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idanran/transform-supports-color.git"
+  },
+  "author": "idanran <idanran@outlook.com>",
+  "license": "MIT",
+  "keywords": [
+    "color",
+    "colour",
+    "colors",
+    "terminal",
+    "console",
+    "cli",
+    "ansi",
+    "styles",
+    "tty",
+    "rgb",
+    "256",
+    "shell",
+    "xterm",
+    "command-line",
+    "support",
+    "supports",
+    "capability",
+    "detect",
+    "truecolor",
+    "16m"
+  ],
+  "scripts": {
+    "compile:node-cjs": "esbuild src/index.ts --outfile=lib/node.cjs --bundle --sourcemap --platform=node --target=es2019",
+    "compile:node-esm": "esbuild src/index.ts --outfile=lib/node.mjs --bundle --sourcemap --platform=node --format=esm --target=esnext",
+    "compile:browser": "esbuild src/index.ts --outfile=lib/browser.mjs --bundle --sourcemap --platform=neutral --target=esnext",
+    "build": "yarn compile:node-cjs && yarn compile:node-esm && yarn compile:browser &&  tsc --project tsconfig.json"
+  },
+  "dependencies": {
+    "supports-color": "9.3.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.16.2",
+    "typescript": "4.9.4",
+    "@types/node": "^18.11.11"
+  }
+}
